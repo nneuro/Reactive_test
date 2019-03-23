@@ -1,0 +1,9 @@
+Для запуска в Windows:
+
+set FLASK_APP=reactive_app && set FLASK_ENV=development && flask run
+
+Для запуска в Unix
+
+export FLASK_APP=reactive_app && export FLASK_ENV=development && flask run
+
+Cоздание БД в Windows - python create_db.py
