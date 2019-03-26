@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>{{ title }} - Reactives</title>
+    </head>
+    <body>
+        <h1>Добро пожаловать в мир реактивов, {{ user.user_name }}!</h1>
+        {% for reactive in reactives1 %}
+        <div><p>{{ reactive.reactive_name }} - в наличии </b></p></div>
+        {% endfor %}
+    </body>
+</html>
+

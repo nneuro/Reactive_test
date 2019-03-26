@@ -10,11 +10,7 @@ class Reactives(db.Model):
         package = db.Column(db.String, nullable=True)
         reactive_catalog = db.Column(db.String, nullable=True)
         
-        
-
-
-
-            
+                    
         def __repr__(self):
             return '<Reactives {}>'.format(self.title)
 
@@ -67,3 +63,6 @@ class Reactives(db.Model):
 
 #     def __repr__(self):
 #         return '<Post {}>'.format(self.body)
+
+# http://qaru.site/questions/1261533/populate-wtforms-select-field-using-value-selected-from-previous-field
+# https://studassistent.ru/python/wtform-selectfield-flask-python-python
