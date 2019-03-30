@@ -10,13 +10,14 @@ def create_app():
 
     @app.route('/')
     @app.route('/index')
-    # def index():
-    #     return "Добро пожаловать в мир реактивов"
+    
     def index():
         user = {'user_name': 'Наталья'}
         reactives1 = [
             {'reactive_name': 'Хлорид натрия'},
-            {'reactive_name': 'Меркаптанчик'}
+            {'reactive_name': 'Меркаптанчик'},
+            {'reactive_name': 'Хлороформ'}
         ]
         return render_template('index.html', title='Home', user = user, reactives1=reactives1)
     return app
+    

@@ -4,3 +4,4 @@ env/
 reactive_app/__pycache__/
 reactive_app/__pycache__/routes.cpython-36.pyc
 webapp.db
+config.py
