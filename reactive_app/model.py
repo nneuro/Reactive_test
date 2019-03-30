@@ -10,6 +10,12 @@ class Reactives(db.Model):
         reactive_count = db.Column(db.Integer, nullable=False) #обязательное поле
         package = db.Column(db.String, nullable=True)
         reactive_catalog = db.Column(db.String, nullable=True)
+        url_reactive = db.Column(db.String, nullable=True)
+        urgency = db.Column(db.String, nullable=True)
+        reactive_sort = db.Column(db.String, nullable=True)
+        reactive_aim = db.Column(db.String, nullable=True)
+        reactive_comment = db.Column(db.String, nullable=True)
+        seller = db.Column(db.String, nullable=True)
         order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
 
         def __repr__(self):
@@ -17,9 +23,9 @@ class Reactives(db.Model):
 
 class Orders(db.Model):
         id = db.Column(db.Integer, primary_key=True)
-        order_date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+        order_date_published = db.Column(db.DateTime, default=datetime.utcnow)
         reactive_in_order_id = db.relationship('Reactives', backref='Реактив', lazy='dynamic')
-        # не знаю, что такое lazy = 'dynamic'
+        # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
         def __repr__(self):
             return '<Orders {}>'.format(self.order_date)
 
@@ -30,51 +36,3 @@ class Orders(db.Model):
 
 
 
-# Название реактива *
-# Производитель - Vendor
-# Количество *
-# Фасовка 
-# Каталожный номер
-# Ссылка на реактив на сайте производителя
-# Срочность заказа конкретного реактива - “стратегический” или “срочный”  *
-# Вид реактивов (будет список на основе кодов ОКДП2)
-# Цель заказа 
-# Комментарий
-# Поставщик - Seller
-
-
-# пример - class News(db.Model):
-#         id = db.Column(db.Integer, primary_key=True)
-#         title = db.Column(db.String, nullable=False)
-#         url = db.Column(db.String, unique=True, nullable=False)
-#         published = db.Column(db.DateTime, nullable=False)
-#         text = db.Column(db.Text, nullable=True)
-    
-#         def __repr__(self):
-#             return '<News {} {}>'.format(self.title, self.url)
-
-#пример - связи между таблицами
-# from datetime import datetime
-# from app import db
-
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.String(64), index=True, unique=True)
-#     email = db.Column(db.String(120), index=True, unique=True)
-#     password_hash = db.Column(db.String(128))
-#     posts = db.relationship('Post', backref='author', lazy='dynamic')
-
-#     def __repr__(self):
-#         return '<User {}>'.format(self.username)
-
-# class Post(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     body = db.Column(db.String(140))
-#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-#     def __repr__(self):
-#         return '<Post {}>'.format(self.body)
-
-# http://qaru.site/questions/1261533/populate-wtforms-select-field-using-value-selected-from-previous-field
-# https://studassistent.ru/python/wtform-selectfield-flask-python-python
